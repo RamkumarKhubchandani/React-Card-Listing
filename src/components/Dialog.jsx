@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => ({
   },
   rightDrawer: {
     padding: 10,
+  },
+  content: {
+    paddingBottom: 20,
   }
 }));
 
@@ -49,7 +52,7 @@ const DialogComponent = ({ open, data, onDialogClose }) => {
         </IconButton>
       </DialogTitle>
       {data &&
-        <DialogContent>
+        <DialogContent className={classes.content}>
           <Grid container >
 
             <Grid item xs={6}>
@@ -67,7 +70,7 @@ const DialogComponent = ({ open, data, onDialogClose }) => {
                     <TableCell>Family</TableCell>
                     <TableCell>{data.Family}</TableCell>
                   </TableRow>
-                  {data.CollectiveNoun && 
+                  {data.CollectiveNoun &&
                     <TableRow>
                       <TableCell>Collective Noun</TableCell>
                       <TableCell>{data.CollectiveNoun}</TableCell>
