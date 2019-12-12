@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     $ node -v
     10.15.3
 
-This project also depends on [api](https://gitlab.varomoney.com/varo-bank/customer-ops/api). Unless you have a backend API server running somewhere to proxy your front end code to, you would need this service running in your local for your client application to run successfully.
+
 
 ## Available commands
 
@@ -23,6 +23,7 @@ This project also depends on [api](https://gitlab.varomoney.com/varo-bank/custom
 
     npm run build
     
-Runs the app in the development mode.<br />
+
+Once you start the server then
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
