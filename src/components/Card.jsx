@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -16,7 +17,12 @@ const useStyles = makeStyles(theme => ({
     height: 300,
     marginBottom: 25,
     backgroundColor: grey[100],
-    width: '100%',
+    '-webkit-transition': 'height 0.5s', /* For Safari 3.1 to 6.0 */
+    'transition': 'height 1s',
+    width: '90%',
+    '&:hover': {    
+      height: 310,
+    },
   },
   media: {
     width: 100,
@@ -34,9 +40,7 @@ const useStyles = makeStyles(theme => ({
 const CardComponent = ({ data, onThumbClickHandler }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.card}>
-      {/* <CardHeader
-      /> */}
+    <Card className={classes.card}>      
       <CardContent>
         <Grid container
           spacing={0}
@@ -69,6 +73,11 @@ const CardComponent = ({ data, onThumbClickHandler }) => {
 
     </Card >
   );
+}
+
+CardComponent.propTypes = {
+  data: PropTypes.object,
+  onThumbClickHandler: PropTypes.func
 }
 
 export default memo(CardComponent);

@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,7 +16,6 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-
 const Header = ({ onHeaderButtonClickHandler, firstButtonActive, secondButtonActive }) => {
     const classes = useStyles();
     return (
@@ -28,6 +28,12 @@ const Header = ({ onHeaderButtonClickHandler, firstButtonActive, secondButtonAct
             <Button className={classes.button} variant={`${secondButtonActive ? 'contained' : 'outlined'}`} color="primary" onClick={onHeaderButtonClickHandler("Fruit & Veg")}>Fruit & Veg</Button>
         </Grid>
     )
+}
+
+Header.propTypes = {
+    firstButtonActive: PropTypes.bool,
+    secondButtonActive: PropTypes.bool,
+    onHeaderButtonClickHandler: PropTypes.func
 }
 
 export default memo(Header);

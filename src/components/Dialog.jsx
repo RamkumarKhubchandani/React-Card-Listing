@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -34,7 +35,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 const DialogComponent = ({ open, data, onDialogClose }) => {
   const classes = useStyles();
   const onImageLoad = () => {
@@ -67,10 +67,12 @@ const DialogComponent = ({ open, data, onDialogClose }) => {
                     <TableCell>Family</TableCell>
                     <TableCell>{data.Family}</TableCell>
                   </TableRow>
-                  <TableRow>
-                    <TableCell>Collective Noun</TableCell>
-                    <TableCell>{data.CollectiveNoun}</TableCell>
-                  </TableRow>
+                  {data.CollectiveNoun && 
+                    <TableRow>
+                      <TableCell>Collective Noun</TableCell>
+                      <TableCell>{data.CollectiveNoun}</TableCell>
+                    </TableRow>
+                  }
                   <TableRow>
                     <TableCell>Width</TableCell>
                     <TableCell>{data.Width}</TableCell>
@@ -79,10 +81,12 @@ const DialogComponent = ({ open, data, onDialogClose }) => {
                     <TableCell>Height</TableCell>
                     <TableCell>{data.Height}</TableCell>
                   </TableRow>
-                  <TableRow>
-                    <TableCell>Genus</TableCell>
-                    <TableCell>{data.Genus}</TableCell>
-                  </TableRow>
+                  {data.Genus &&
+                    <TableRow>
+                      <TableCell>Genus</TableCell>
+                      <TableCell>{data.Genus}</TableCell>
+                    </TableRow>
+                  }
                 </TableBody>
               </Table>
             </Grid>
@@ -91,6 +95,12 @@ const DialogComponent = ({ open, data, onDialogClose }) => {
       }
     </Dialog>
   )
+}
+
+DialogComponent.propTypes = {
+  open: PropTypes.bool,
+  data: PropTypes.object,
+  onDialogClose: PropTypes.func
 }
 
 export default memo(DialogComponent);

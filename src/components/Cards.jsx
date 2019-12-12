@@ -1,5 +1,6 @@
 
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CardComponent from './Card';
@@ -27,6 +28,11 @@ const CardsComponent = ({ data, onThumbClickHandler }) => {
       }
     </Grid>
   )
+}
+
+CardsComponent.propTypes = {
+  data: PropTypes.array,
+  onThumbClickHandler: PropTypes.func
 }
 
 export default memo(CardsComponent);
